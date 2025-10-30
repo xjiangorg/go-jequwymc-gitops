@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: go-jequwymc
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: go-jequwymc 
+  name: go-jequwymc
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: go-jequwymc
+    weight: 100 
